@@ -1,0 +1,96 @@
+{
+  "name": "@gg-utils/platform-orchestration-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable platform orchestration command catalog, diagnostics, and UI launcher helpers.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./command-catalog": {
+      "types": "./src/command-catalog.ts",
+      "default": "./src/command-catalog.ts"
+    },
+    "./diagnostics": {
+      "types": "./src/diagnostics.ts",
+      "default": "./src/diagnostics.ts"
+    },
+    "./format-command": {
+      "types": "./src/format-command.ts",
+      "default": "./src/format-command.ts"
+    },
+    "./interactive-menu": {
+      "types": "./src/interactive-menu.ts",
+      "default": "./src/interactive-menu.ts"
+    },
+    "./maintainer-argv": {
+      "types": "./src/maintainer-argv.ts",
+      "default": "./src/maintainer-argv.ts"
+    },
+    "./package-orchestration": {
+      "types": "./src/package-orchestration.ts",
+      "default": "./src/package-orchestration.ts"
+    },
+    "./npm-spawn": {
+      "types": "./src/npm-spawn.ts",
+      "default": "./src/npm-spawn.ts"
+    },
+    "./screen-state": {
+      "types": "./src/screen-state.ts",
+      "default": "./src/screen-state.ts"
+    },
+    "./spawn-npx-tsx": {
+      "types": "./src/spawn-npx-tsx.ts",
+      "default": "./src/spawn-npx-tsx.ts"
+    },
+    "./ui-launcher": {
+      "types": "./src/ui-launcher.ts",
+      "default": "./src/ui-launcher.ts"
+    },
+    "./opentui-app": {
+      "types": "./src/opentui-app.tsx",
+      "default": "./src/opentui-app.tsx"
+    },
+    "./ink-app": {
+      "types": "./src/ink-app.tsx",
+      "default": "./src/ink-app.tsx"
+    },
+    "./package.json": "./package.json",
+    "./install-report": {
+      "types": "./src/install-report.ts",
+      "default": "./src/install-report.ts"
+    },
+    "./maintainer-ink-app": {
+      "types": "./src/maintainer-ink-app.tsx",
+      "default": "./src/maintainer-ink-app.tsx"
+    },
+    "./maintainer-opentui-app": {
+      "types": "./src/maintainer-opentui-app.tsx",
+      "default": "./src/maintainer-opentui-app.tsx"
+    }
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "!src/**/*.unit.test.ts",
+    "README.md",
+    "tsconfig.json",
+    "tsconfig.build.json"
+  ],
+  "engines": {
+    "node": ">=24.11.1 <25",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@11.12.1",
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json",
+    "type-check": "node ../../node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
+    "test": "node ../../node_modules/tsx/dist/cli.mjs --test \"src/**/*.unit.test.ts\""
+  }
+}
