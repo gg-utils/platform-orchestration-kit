@@ -29,4 +29,3 @@ export type PlatformOrchestrationKit_MaintainerParseResult = {
 export declare function PlatformOrchestrationKit_parseMaintainerArgv(argv: readonly string[]): PlatformOrchestrationKit_MaintainerParseResult;
 /** Returns usage help text for a maintainer CLI, parameterized by the adapter label. */
 export declare function PlatformOrchestrationKit_getMaintainerHelpText(programLabel: string): string;
-//# sourceMappingURL=maintainer-argv.d.ts.map

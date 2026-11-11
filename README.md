@@ -124,3 +124,11 @@ Scripts currently expect the source-first workspace toolchain.
 - Project command IDs, labels, npm script names, and risk decisions belong in config.
 - The kit can render and spawn through injected runners; it does not decide what is safe to run.
 - Keep deployment credentials and environment-specific policy outside this package.
+
+## Use from another repository
+
+Requires Node `>=22.0.0 <27`. Install the built JavaScript and declarations by tag:
+
+```json
+{"dependencies": {"@gg-utils/platform-orchestration-kit": "git+https://github.com/gg-utils/platform-orchestration-kit.git#v0.2.0"}}
+```

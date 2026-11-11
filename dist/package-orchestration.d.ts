@@ -62,4 +62,3 @@ export declare function PlatformOrchestrationKit_runNpxTsxScript(options: {
 }): PlatformOrchestrationKit_RunResult;
 /** Prints captured stdout/stderr for a failed orchestration run when either stream is non-empty. */
 export declare function PlatformOrchestrationKit_printRunFailureDetails(label: string, result: PlatformOrchestrationKit_RunResult): void;
-//# sourceMappingURL=package-orchestration.d.ts.map

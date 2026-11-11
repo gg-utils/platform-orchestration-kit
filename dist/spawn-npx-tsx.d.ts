@@ -46,4 +46,3 @@ export declare function PlatformOrchestrationKit_spawnNpxTsx(repoRoot: string, s
  * Returns a space-joined argv preview using `scriptPathUnderRepo` as written (not absolute); spawn uses the absolute path resolved under `repoRoot`.
  */
 export declare function PlatformOrchestrationKit_formatNpxTsxCommandLine(scriptPathUnderRepo: string, args?: readonly string[]): string;
-//# sourceMappingURL=spawn-npx-tsx.d.ts.map

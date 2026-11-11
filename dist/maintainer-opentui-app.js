@@ -43,7 +43,7 @@ export function PlatformOrchestrationKitMaintainerOpenTuiApp({ behavior, content
     const childRef = useRef(null);
     const packages = useMemo(() => PlatformOrchestrationKit_resolveWorkspacePackageDirs(resolvedProjectRoot), [resolvedProjectRoot]);
     const diagnostics = useMemo(() => PlatformOrchestrationKit_buildDiagnosticsPayload({
-        contentQueueGuardsPath,
+        ...(contentQueueGuardsPath === undefined ? {} : { contentQueueGuardsPath }),
         repoRoot: resolvedProjectRoot,
         wrappers,
     }), [contentQueueGuardsPath, resolvedProjectRoot, wrappers]);
@@ -205,4 +205,3 @@ export function PlatformOrchestrationKitMaintainerOpenTuiApp({ behavior, content
                             }
                         }, options: runActionOptions, showDescription: true })] })) : null] }));
 }
-//# sourceMappingURL=maintainer-opentui-app.js.map

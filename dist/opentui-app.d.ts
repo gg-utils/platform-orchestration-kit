@@ -45,4 +45,3 @@ export type PlatformOrchestrationKit_OpenTuiAppProps<Command extends PlatformOrc
 };
 /** OpenTUI root component for a config-driven platform command browser. */
 export declare function PlatformOrchestrationKitOpenTuiApp<Command extends PlatformOrchestrationKit_CommandDefinition>({ behavior, commands, headerText, projectRoot, }: PlatformOrchestrationKit_OpenTuiAppProps<Command>): ReactNode;
-//# sourceMappingURL=opentui-app.d.ts.map

@@ -45,4 +45,3 @@ export type PlatformOrchestrationKit_UiHelpTextOptions = {
 };
 /** Builds stable help text for platform UI launchers while adapters own user-facing labels. */
 export declare function PlatformOrchestrationKit_buildUiHelpText(options: PlatformOrchestrationKit_UiHelpTextOptions): string;
-//# sourceMappingURL=ui-launcher.d.ts.map

@@ -48,8 +48,8 @@ const commands: readonly PlatformOrchestrationKit_CommandDefinition[] = [
   },
 ];
 
-describe("PlatformOrchestrationKit command catalog", () => {
-  it("finds commands and resolves direct npm scripts", () => {
+void describe("PlatformOrchestrationKit command catalog", () => {
+  void it("finds commands and resolves direct npm scripts", () => {
     const testCommand = PlatformOrchestrationKit_findCommandById({ commands, id: "test" });
     assert.equal(testCommand?.id, "test");
     assert.equal(
@@ -58,7 +58,7 @@ describe("PlatformOrchestrationKit command catalog", () => {
     );
   });
 
-  it("resolves deploy target mappings", () => {
+  void it("resolves deploy target mappings", () => {
     const deploy = PlatformOrchestrationKit_findCommandById({ commands, id: "deploy" });
     assert.equal(
       deploy
@@ -71,7 +71,7 @@ describe("PlatformOrchestrationKit command catalog", () => {
     );
   });
 
-  it("requires deploy targets for deploy commands", () => {
+  void it("requires deploy targets for deploy commands", () => {
     const deploy = PlatformOrchestrationKit_findCommandById({ commands, id: "deploy" });
     assert.throws(() => {
       if (deploy) {

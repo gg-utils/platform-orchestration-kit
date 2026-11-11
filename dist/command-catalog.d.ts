@@ -41,4 +41,3 @@ export declare function PlatformOrchestrationKit_resolveCommandNpmScript<Command
     command: Command;
     deployTarget?: string | null;
 }): string;
-//# sourceMappingURL=command-catalog.d.ts.map

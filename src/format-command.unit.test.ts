@@ -25,8 +25,8 @@ import {
 } from "./format-command.js";
 import { PlatformOrchestrationKit_formatNpxTsxCommandLine } from "./spawn-npx-tsx.js";
 
-describe("PlatformOrchestrationKit command formatting", () => {
-  it("formats npm run previews", () => {
+void describe("PlatformOrchestrationKit command formatting", () => {
+  void it("formats npm run previews", () => {
     assert.equal(
       PlatformOrchestrationKit_formatNpmRunCommand("build"),
       "npm run build",
@@ -40,7 +40,7 @@ describe("PlatformOrchestrationKit command formatting", () => {
     );
   });
 
-  it("formats package and root npm previews", () => {
+  void it("formats package and root npm previews", () => {
     assert.equal(
       PlatformOrchestrationKit_formatNpmRunPackageCommandLine(
         "packages/demo",
@@ -56,7 +56,7 @@ describe("PlatformOrchestrationKit command formatting", () => {
     );
   });
 
-  it("formats npx tsx previews", () => {
+  void it("formats npx tsx previews", () => {
     assert.equal(
       PlatformOrchestrationKit_formatNpxTsxCommandLine(
         "scripts/platform/commands/build-all.ts",

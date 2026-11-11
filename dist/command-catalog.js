@@ -35,4 +35,3 @@ export function PlatformOrchestrationKit_resolveCommandNpmScript(options) {
     }
     return command.npmScript;
 }
-//# sourceMappingURL=command-catalog.js.map

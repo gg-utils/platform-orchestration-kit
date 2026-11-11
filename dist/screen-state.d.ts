@@ -24,4 +24,3 @@ export declare function PlatformOrchestrationKit_resolveNpmScriptForSelection<Co
 }): string;
 /** Returns whether a command selection requires the deploy-target phase. */
 export declare function PlatformOrchestrationKit_shouldShowDeployPhase(command: PlatformOrchestrationKit_CommandDefinition | null): boolean;
-//# sourceMappingURL=screen-state.d.ts.map

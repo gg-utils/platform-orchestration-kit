@@ -59,7 +59,7 @@ afterEach(() => {
   }
 });
 
-test("PlatformOrchestrationKit package orchestration discovers scripts", () => {
+void test("PlatformOrchestrationKit package orchestration discovers scripts", () => {
   const root = createTempRoot();
   mkdirSync(path.join(root, "packages", "one"), { recursive: true });
   mkdirSync(path.join(root, "packages", "two"), { recursive: true });

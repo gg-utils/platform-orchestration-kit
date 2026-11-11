@@ -121,7 +121,7 @@ export function PlatformOrchestrationKitMaintainerOpenTuiApp({
   const diagnostics = useMemo(
     () =>
       PlatformOrchestrationKit_buildDiagnosticsPayload({
-        contentQueueGuardsPath,
+        ...(contentQueueGuardsPath === undefined ? {} : { contentQueueGuardsPath }),
         repoRoot: resolvedProjectRoot,
         wrappers,
       }),

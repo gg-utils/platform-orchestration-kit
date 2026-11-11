@@ -49,8 +49,8 @@ afterEach(() => {
   }
 });
 
-describe("PlatformOrchestrationKit diagnostics", () => {
-  it("discovers workspace package directories", () => {
+void describe("PlatformOrchestrationKit diagnostics", () => {
+  void it("discovers workspace package directories", () => {
     const root = createTempDir();
     mkdirSync(path.join(root, "packages", "one"), { recursive: true });
     writeJson(path.join(root, "package.json"), { workspaces: ["packages/*"] });
@@ -65,7 +65,7 @@ describe("PlatformOrchestrationKit diagnostics", () => {
     );
   });
 
-  it("builds package diagnostics from explicit package dirs", () => {
+  void it("builds package diagnostics from explicit package dirs", () => {
     const root = createTempDir();
     mkdirSync(path.join(root, "pkg"), { recursive: true });
     writeJson(path.join(root, "pkg", "package.json"), {
@@ -88,7 +88,7 @@ describe("PlatformOrchestrationKit diagnostics", () => {
     assert.equal(rows[0]?.scripts.typeCheck, "type-check");
   });
 
-  it("builds ordered package preview targets", () => {
+  void it("builds ordered package preview targets", () => {
     const root = createTempDir();
     mkdirSync(path.join(root, "pkg"), { recursive: true });
     writeJson(path.join(root, "pkg", "package.json"), {
@@ -115,7 +115,7 @@ describe("PlatformOrchestrationKit diagnostics", () => {
     );
   });
 
-  it("builds diagnostics payload from wrapper and guard config", () => {
+  void it("builds diagnostics payload from wrapper and guard config", () => {
     const root = createTempDir();
     mkdirSync(path.join(root, "scripts", "platform", "commands"), {
       recursive: true,

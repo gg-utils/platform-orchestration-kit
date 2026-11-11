@@ -26,4 +26,3 @@ export function PlatformOrchestrationKit_resolveNpmScriptForSelection(options) {
 export function PlatformOrchestrationKit_shouldShowDeployPhase(command) {
     return command?.requiresDeployTarget === true;
 }
-//# sourceMappingURL=screen-state.js.map

@@ -345,7 +345,7 @@ export function PlatformOrchestrationKit_buildDiagnosticsPayload(
     contentQueueGuardsScriptExists:
       guardPath.length > 0 ? fs.existsSync(guardPath) : false,
     packages: PlatformOrchestrationKit_buildPackageDiagnostics({
-      packageDirs: options.packageDirs,
+      ...(options.packageDirs === undefined ? {} : { packageDirs: options.packageDirs }),
       repoRoot: resolvedRoot,
     }),
     repoRoot: resolvedRoot,

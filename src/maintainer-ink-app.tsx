@@ -466,7 +466,7 @@ export function PlatformOrchestrationKitMaintainerInkApp({
   const diagnostics = useMemo(
     () =>
       PlatformOrchestrationKit_buildDiagnosticsPayload({
-        contentQueueGuardsPath,
+        ...(contentQueueGuardsPath === undefined ? {} : { contentQueueGuardsPath }),
         repoRoot: resolvedProjectRoot,
         wrappers,
       }),
@@ -692,7 +692,7 @@ export function PlatformOrchestrationKitMaintainerInkApp({
             return (
               <Text
                 key={packageDir}
-                color={index === pkgIndex ? "cyan" : undefined}
+                {...(index === pkgIndex ? { color: "cyan" as const } : {})}
               >
                 {mark}
                 {packageDir} {bits}
@@ -708,7 +708,7 @@ export function PlatformOrchestrationKitMaintainerInkApp({
           {wrappers.map((item, index) => (
             <Text
               key={item.npmScript}
-              color={index === wrapIndex ? "cyan" : undefined}
+              {...(index === wrapIndex ? { color: "cyan" as const } : {})}
             >
               {index === wrapIndex ? "> " : "  "}
               {item.npmScript} → {item.scriptPath}
@@ -739,7 +739,7 @@ export function PlatformOrchestrationKitMaintainerInkApp({
           {previewTargets.map((target, index) => (
             <Text
               key={target.script}
-              color={index === previewScriptIndex ? "cyan" : undefined}
+              {...(index === previewScriptIndex ? { color: "cyan" as const } : {})}
             >
               {index === previewScriptIndex ? "> " : "  "}
               {target.label}
@@ -771,7 +771,7 @@ export function PlatformOrchestrationKitMaintainerInkApp({
               {wrappers.map((item, index) => (
                 <Text
                   key={item.npmScript}
-                  color={index === runWrapIndex ? "cyan" : undefined}
+                  {...(index === runWrapIndex ? { color: "cyan" as const } : {})}
                 >
                   {index === runWrapIndex ? "> " : "  "}
                   {item.npmScript} → {item.scriptPath}

@@ -85,4 +85,3 @@ export declare function PlatformOrchestrationKit_buildPackageDiagnostics(options
 }): readonly PlatformOrchestrationKit_PackageDiagnostics[];
 /** Builds the full diagnostics payload from repoRoot plus adapter-provided wrapper/guard config. */
 export declare function PlatformOrchestrationKit_buildDiagnosticsPayload(options: PlatformOrchestrationKit_DiagnosticsOptions): PlatformOrchestrationKit_DiagnosticsPayload;
-//# sourceMappingURL=diagnostics.d.ts.map

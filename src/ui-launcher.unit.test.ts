@@ -21,8 +21,8 @@ import {
   PlatformOrchestrationKit_parseUiLaunchOptions,
 } from "./ui-launcher.js";
 
-describe("PlatformOrchestrationKit UI launcher", () => {
-  it("parses project root, command previews, and help", () => {
+void describe("PlatformOrchestrationKit UI launcher", () => {
+  void it("parses project root, command previews, and help", () => {
     const parsed = PlatformOrchestrationKit_parseUiLaunchOptions([
       "--project-root",
       "/tmp/example",
@@ -36,7 +36,7 @@ describe("PlatformOrchestrationKit UI launcher", () => {
     assert.equal(parsed.helpRequested, true);
   });
 
-  it("builds adapter-owned help text", () => {
+  void it("builds adapter-owned help text", () => {
     const help = PlatformOrchestrationKit_buildUiHelpText({
       description: "Launcher",
       examples: ["npm run x"],

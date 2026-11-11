@@ -35,4 +35,3 @@ export type PlatformOrchestrationKit_MaintainerInkAppProps = {
 };
 /** Reusable Ink maintainer UI for platform orchestration diagnostics and wrapper runs. */
 export declare function PlatformOrchestrationKitMaintainerInkApp({ appName, behavior, contentQueueGuardsPath, description, diagnosticsJsonCommandLine, exampleRootNpmScript, projectRoot, wrappers, }: PlatformOrchestrationKit_MaintainerInkAppProps): React.ReactNode;
-//# sourceMappingURL=maintainer-ink-app.d.ts.map

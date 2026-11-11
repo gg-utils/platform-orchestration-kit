@@ -44,4 +44,3 @@ export type PlatformOrchestrationKit_InkAppProps = {
 };
 /** Ink root component for a config-driven platform CLI. */
 export declare function PlatformOrchestrationKitInkApp(props: PlatformOrchestrationKit_InkAppProps): React.ReactNode;
-//# sourceMappingURL=ink-app.d.ts.map

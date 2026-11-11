@@ -52,4 +52,3 @@ export function PlatformOrchestrationKit_formatNpmRunRootCommandLine(npmScript, 
     parts.push(npmScript);
     return parts.join(" ");
 }
-//# sourceMappingURL=format-command.js.map
