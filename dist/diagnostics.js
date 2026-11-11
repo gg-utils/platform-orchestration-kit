@@ -208,7 +208,7 @@ export function PlatformOrchestrationKit_buildDiagnosticsPayload(options) {
     return {
         contentQueueGuardsScriptExists: guardPath.length > 0 ? fs.existsSync(guardPath) : false,
         packages: PlatformOrchestrationKit_buildPackageDiagnostics({
-            packageDirs: options.packageDirs,
+            ...(options.packageDirs === undefined ? {} : { packageDirs: options.packageDirs }),
             repoRoot: resolvedRoot,
         }),
         repoRoot: resolvedRoot,
@@ -220,4 +220,3 @@ export function PlatformOrchestrationKit_buildDiagnosticsPayload(options) {
         })),
     };
 }
-//# sourceMappingURL=diagnostics.js.map

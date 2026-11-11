@@ -33,4 +33,3 @@ export type PlatformOrchestrationKit_MaintainerOpenTuiAppProps = {
 };
 /** OpenTUI maintainer shell for platform orchestration diagnostics, previews, and wrapper runs. */
 export declare function PlatformOrchestrationKitMaintainerOpenTuiApp({ behavior, contentQueueGuardsPath, diagnosticsJsonCommandLine, headerText, projectRoot, wrappers, }: PlatformOrchestrationKit_MaintainerOpenTuiAppProps): ReactNode;
-//# sourceMappingURL=maintainer-opentui-app.d.ts.map

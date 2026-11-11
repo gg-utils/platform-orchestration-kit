@@ -10,7 +10,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
  * @see packages/platform-orchestration-kit/src/command-catalog.ts - Command catalog contracts.
  * @documentation reviewed=2026-05-21 standard=FILE_OVERVIEW_STANDARDS_TYPESCRIPT@3
  */
-import { createContext, useContext, useEffect, useMemo, useRef, useState, } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState, } from "react";
 import { Box, Static, Text, useInput } from "ink";
 import { MemoryRouter, Route, Routes, useNavigate } from "react-router";
 import { PlatformOrchestrationKit_resolveCommandNpmScript, } from "./command-catalog.js";
@@ -116,7 +116,7 @@ function HomeScreen({ appName, commands, description, notice, projectRoot, resol
             resetSession();
             setSession((previous) => ({ ...previous, command: selected }));
             if (selected.requiresDeployTarget) {
-                navigate("/deploy");
+                void navigate("/deploy");
                 return;
             }
             const npmScript = resolveNpmScript({
@@ -129,7 +129,7 @@ function HomeScreen({ appName, commands, description, notice, projectRoot, resol
                 deployTarget: null,
                 npmScript,
             }));
-            navigate("/review");
+            void navigate("/review");
         }
         if (key.escape) {
             process.exit(0);
@@ -153,7 +153,7 @@ function DeployScreen({ resolveNpmScript, }) {
         }
         if (key.return) {
             if (!command?.requiresDeployTarget) {
-                navigate("/");
+                void navigate("/");
                 return;
             }
             const target = targets[index]?.target;
@@ -166,10 +166,10 @@ function DeployScreen({ resolveNpmScript, }) {
                 deployTarget: target,
                 npmScript,
             }));
-            navigate("/review");
+            void navigate("/review");
         }
         if (key.escape) {
-            navigate("/");
+            void navigate("/");
         }
     });
     if (!command?.requiresDeployTarget) {
@@ -193,10 +193,10 @@ function ReviewScreen({ formatNpmRunCommand, getCommandWarning, }) {
                 runNonce: previous.runNonce + 1,
                 runStartedAtMs: Date.now(),
             }));
-            navigate("/run");
+            void navigate("/run");
         }
         if (key.escape) {
-            navigate(command?.requiresDeployTarget ? "/deploy" : "/");
+            void navigate(command?.requiresDeployTarget ? "/deploy" : "/");
         }
     });
     if (!command || !npmScript) {
@@ -226,7 +226,7 @@ function RunScreen({ formatNpmRunCommand, projectRoot, spawnNpmRun, }) {
     }, []);
     useEffect(() => {
         if (!npmScript) {
-            navigate("/");
+            void navigate("/");
             return;
         }
         setLines([]);
@@ -269,7 +269,7 @@ function RunScreen({ formatNpmRunCommand, projectRoot, spawnNpmRun, }) {
                             : "failed",
                 },
             }));
-            navigate("/result");
+            void navigate("/result");
         })
             .catch(() => {
             setSession((previous) => ({
@@ -281,7 +281,7 @@ function RunScreen({ formatNpmRunCommand, projectRoot, spawnNpmRun, }) {
                     status: cancelled ? "cancelled" : "failed",
                 },
             }));
-            navigate("/result");
+            void navigate("/result");
         });
         return () => {
             cancelRef.current = null;
@@ -314,7 +314,7 @@ function ResultScreen() {
     useInput((_input, key) => {
         if (key.return || key.escape) {
             resetSession();
-            navigate("/");
+            void navigate("/");
         }
     });
     if (!result) {
@@ -337,4 +337,3 @@ function PlatformOrchestrationKitInkRoutes({ appName, behavior, commands, descri
 export function PlatformOrchestrationKitInkApp(props) {
     return (_jsx(MemoryRouter, { initialEntries: ["/"], initialIndex: 0, children: _jsx(PlatformOrchestrationKitInkSessionProvider, { children: _jsx(PlatformOrchestrationKitInkRoutes, { ...props }) }) }));
 }
-//# sourceMappingURL=ink-app.js.map

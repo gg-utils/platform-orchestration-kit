@@ -1,96 +1,110 @@
 {
   "name": "@gg-utils/platform-orchestration-kit",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
   "description": "Reusable platform orchestration command catalog, diagnostics, and UI launcher helpers.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./command-catalog": {
-      "types": "./src/command-catalog.ts",
-      "default": "./src/command-catalog.ts"
+      "types": "./dist/command-catalog.d.ts",
+      "default": "./dist/command-catalog.js"
     },
     "./diagnostics": {
-      "types": "./src/diagnostics.ts",
-      "default": "./src/diagnostics.ts"
+      "types": "./dist/diagnostics.d.ts",
+      "default": "./dist/diagnostics.js"
     },
     "./format-command": {
-      "types": "./src/format-command.ts",
-      "default": "./src/format-command.ts"
+      "types": "./dist/format-command.d.ts",
+      "default": "./dist/format-command.js"
     },
     "./interactive-menu": {
-      "types": "./src/interactive-menu.ts",
-      "default": "./src/interactive-menu.ts"
+      "types": "./dist/interactive-menu.d.ts",
+      "default": "./dist/interactive-menu.js"
     },
     "./maintainer-argv": {
-      "types": "./src/maintainer-argv.ts",
-      "default": "./src/maintainer-argv.ts"
+      "types": "./dist/maintainer-argv.d.ts",
+      "default": "./dist/maintainer-argv.js"
     },
     "./package-orchestration": {
-      "types": "./src/package-orchestration.ts",
-      "default": "./src/package-orchestration.ts"
+      "types": "./dist/package-orchestration.d.ts",
+      "default": "./dist/package-orchestration.js"
     },
     "./npm-spawn": {
-      "types": "./src/npm-spawn.ts",
-      "default": "./src/npm-spawn.ts"
+      "types": "./dist/npm-spawn.d.ts",
+      "default": "./dist/npm-spawn.js"
     },
     "./screen-state": {
-      "types": "./src/screen-state.ts",
-      "default": "./src/screen-state.ts"
+      "types": "./dist/screen-state.d.ts",
+      "default": "./dist/screen-state.js"
     },
     "./spawn-npx-tsx": {
-      "types": "./src/spawn-npx-tsx.ts",
-      "default": "./src/spawn-npx-tsx.ts"
+      "types": "./dist/spawn-npx-tsx.d.ts",
+      "default": "./dist/spawn-npx-tsx.js"
     },
     "./ui-launcher": {
-      "types": "./src/ui-launcher.ts",
-      "default": "./src/ui-launcher.ts"
+      "types": "./dist/ui-launcher.d.ts",
+      "default": "./dist/ui-launcher.js"
     },
     "./opentui-app": {
-      "types": "./src/opentui-app.tsx",
-      "default": "./src/opentui-app.tsx"
+      "types": "./dist/opentui-app.d.ts",
+      "default": "./dist/opentui-app.js"
     },
     "./ink-app": {
-      "types": "./src/ink-app.tsx",
-      "default": "./src/ink-app.tsx"
+      "types": "./dist/ink-app.d.ts",
+      "default": "./dist/ink-app.js"
     },
     "./package.json": "./package.json",
     "./install-report": {
-      "types": "./src/install-report.ts",
-      "default": "./src/install-report.ts"
+      "types": "./dist/install-report.d.ts",
+      "default": "./dist/install-report.js"
     },
     "./maintainer-ink-app": {
-      "types": "./src/maintainer-ink-app.tsx",
-      "default": "./src/maintainer-ink-app.tsx"
+      "types": "./dist/maintainer-ink-app.d.ts",
+      "default": "./dist/maintainer-ink-app.js"
     },
     "./maintainer-opentui-app": {
-      "types": "./src/maintainer-opentui-app.tsx",
-      "default": "./src/maintainer-opentui-app.tsx"
+      "types": "./dist/maintainer-opentui-app.d.ts",
+      "default": "./dist/maintainer-opentui-app.js"
     }
   },
   "files": [
     "dist/",
-    "src/",
-    "!src/**/*.unit.test.ts",
     "README.md",
-    "tsconfig.json",
-    "tsconfig.build.json"
+    "LICENSE"
   ],
   "engines": {
-    "node": ">=24.11.1 <25",
+    "node": ">=22.0.0 <27",
     "npm": ">=9.0.0"
   },
   "packageManager": "npm@11.12.1",
   "scripts": {
-    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json",
-    "type-check": "node ../../node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
-    "test": "node ../../node_modules/tsx/dist/cli.mjs --test \"src/**/*.unit.test.ts\""
+    "build": "tsc -p tsconfig.build.json",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && node --test \".test-dist/**/*.unit.test.js\"",
+    "lint": "eslint --max-warnings 0 .",
+    "check:dist": "sh scripts/check-dist.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gg-utils/platform-orchestration-kit.git"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/react": "19.2.0",
+    "eslint": "9.39.5",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.2"
+  },
+  "dependencies": {
+    "ink": "^6.8.0",
+    "react": "^19.2.0",
+    "react-router": "^7.18.5"
   }
 }

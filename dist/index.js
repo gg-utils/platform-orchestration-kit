@@ -46,4 +46,3 @@ export * from "./ink-app.js";
 export * from "./opentui-app.js";
 export * from "./maintainer-ink-app.js";
 export * from "./maintainer-opentui-app.js";
-//# sourceMappingURL=index.js.map

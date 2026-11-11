@@ -7,8 +7,8 @@
  *
  * @example
  * ```typescript
- * it("renders the maintainer menu copy", async () => {
- *   const output = await renderToString(
+ * it("renders the maintainer menu copy", () => {
+ *   const output = renderToString(
  *     React.createElement(PlatformOrchestrationKitMaintainerInkApp, {
  *       projectRoot: process.cwd(),
  *       wrappers,
@@ -42,9 +42,9 @@ const wrappers = [
   },
 ] as const;
 
-describe("PlatformOrchestrationKitMaintainerInkApp", () => {
-  it("renders the maintainer menu copy", async () => {
-    const output = await renderToString(
+void describe("PlatformOrchestrationKitMaintainerInkApp", () => {
+  void it("renders the maintainer menu copy", () => {
+    const output = renderToString(
       React.createElement(PlatformOrchestrationKitMaintainerInkApp, {
         projectRoot: process.cwd(),
         wrappers,

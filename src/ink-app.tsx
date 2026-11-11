@@ -308,7 +308,7 @@ function HomeScreen({
       resetSession();
       setSession((previous) => ({ ...previous, command: selected }));
       if (selected.requiresDeployTarget) {
-        navigate("/deploy");
+        void navigate("/deploy");
         return;
       }
       const npmScript = resolveNpmScript({
@@ -321,7 +321,7 @@ function HomeScreen({
         deployTarget: null,
         npmScript,
       }));
-      navigate("/review");
+      void navigate("/review");
     }
     if (key.escape) {
       process.exit(0);
@@ -375,7 +375,7 @@ function DeployScreen({
     }
     if (key.return) {
       if (!command?.requiresDeployTarget) {
-        navigate("/");
+        void navigate("/");
         return;
       }
       const target = targets[index]?.target;
@@ -388,10 +388,10 @@ function DeployScreen({
         deployTarget: target,
         npmScript,
       }));
-      navigate("/review");
+      void navigate("/review");
     }
     if (key.escape) {
-      navigate("/");
+      void navigate("/");
     }
   });
 
@@ -443,10 +443,10 @@ function ReviewScreen({
         runNonce: previous.runNonce + 1,
         runStartedAtMs: Date.now(),
       }));
-      navigate("/run");
+      void navigate("/run");
     }
     if (key.escape) {
-      navigate(command?.requiresDeployTarget ? "/deploy" : "/");
+      void navigate(command?.requiresDeployTarget ? "/deploy" : "/");
     }
   });
 
@@ -515,7 +515,7 @@ function RunScreen({
 
   useEffect(() => {
     if (!npmScript) {
-      navigate("/");
+      void navigate("/");
       return;
     }
 
@@ -561,7 +561,7 @@ function RunScreen({
                 : "failed",
           },
         }));
-        navigate("/result");
+        void navigate("/result");
       })
       .catch(() => {
         setSession((previous) => ({
@@ -573,7 +573,7 @@ function RunScreen({
             status: cancelled ? "cancelled" : "failed",
           },
         }));
-        navigate("/result");
+        void navigate("/result");
       });
 
     return () => {
@@ -636,7 +636,7 @@ function ResultScreen(): React.ReactNode {
   useInput((_input, key) => {
     if (key.return || key.escape) {
       resetSession();
-      navigate("/");
+      void navigate("/");
     }
   });
 

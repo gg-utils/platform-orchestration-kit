@@ -74,9 +74,9 @@ class FakeSession implements PlatformOrchestrationKit_InteractiveMenuSession {
     this.lines.push(`success:${text}`);
   }
 
-  async promptReadLine(promptText: string): Promise<string> {
+  promptReadLine(promptText: string): Promise<string> {
     this.lines.push(`prompt:${promptText}`);
-    return this.answers.shift() ?? "3";
+    return Promise.resolve(this.answers.shift() ?? "3");
   }
 
   writeLine(text = ""): void {
@@ -127,7 +127,7 @@ const config: PlatformOrchestrationKit_InteractiveMenuConfig = {
   ],
 };
 
-test("PlatformOrchestrationKit_printInteractiveMenu renders configured sections", () => {
+void test("PlatformOrchestrationKit_printInteractiveMenu renders configured sections", () => {
   const session = new FakeSession();
 
   PlatformOrchestrationKit_printInteractiveMenu({ config, session });
@@ -147,7 +147,7 @@ test("PlatformOrchestrationKit_printInteractiveMenu renders configured sections"
   ]);
 });
 
-test("PlatformOrchestrationKit_handleInteractiveMenuSelection dispatches scripts", async () => {
+void test("PlatformOrchestrationKit_handleInteractiveMenuSelection dispatches scripts", async () => {
   const session = new FakeSession();
   const runs: string[] = [];
 
@@ -156,8 +156,9 @@ test("PlatformOrchestrationKit_handleInteractiveMenuSelection dispatches scripts
       action: "1",
       config,
       cwd: "/repo",
-      runScript: async (options) => {
+      runScript: (options) => {
         runs.push(`${options.cwd}:${options.scriptName}`);
+        return Promise.resolve();
       },
       session,
     }),
@@ -167,7 +168,7 @@ test("PlatformOrchestrationKit_handleInteractiveMenuSelection dispatches scripts
   assert.deepEqual(runs, ["/repo:orchestration:test"]);
 });
 
-test(
+void test(
   "PlatformOrchestrationKit_runInteractiveMenu handles invalid input and exit alias",
   async () => {
     const session = new FakeSession(["bad", "q"]);
@@ -176,8 +177,9 @@ test(
     await PlatformOrchestrationKit_runInteractiveMenu({
       config,
       cwd: "/repo",
-      runScript: async (options) => {
+      runScript: (options) => {
         runs.push(options.scriptName);
+        return Promise.resolve();
       },
       session,
     });

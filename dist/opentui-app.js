@@ -179,4 +179,3 @@ export function PlatformOrchestrationKitOpenTuiApp({ behavior, commands, headerT
                             { description: "Main menu", name: "Menu", value: "menu" },
                         ], showDescription: true })] })) : null] }));
 }
-//# sourceMappingURL=opentui-app.js.map

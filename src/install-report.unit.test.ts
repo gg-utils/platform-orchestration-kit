@@ -39,7 +39,7 @@ function captureConsoleLog(run: () => void): string[] {
   return lines;
 }
 
-test("PlatformOrchestrationKit_installPhaseResultStatus prioritizes failures over blocks", () => {
+void test("PlatformOrchestrationKit_installPhaseResultStatus prioritizes failures over blocks", () => {
   assert.equal(
     PlatformOrchestrationKit_installPhaseResultStatus({
       blockedSteps: [{ label: "blocked" }],
@@ -59,7 +59,7 @@ test("PlatformOrchestrationKit_installPhaseResultStatus prioritizes failures ove
   );
 });
 
-test("PlatformOrchestrationKit_printInstallPhaseResult renders populated sections and notes", () => {
+void test("PlatformOrchestrationKit_printInstallPhaseResult renders populated sections and notes", () => {
   const output = captureConsoleLog(() => {
     PlatformOrchestrationKit_printInstallPhaseResult({
       completedSteps: [{ label: "done", detail: "detail" }],
@@ -92,7 +92,7 @@ test("PlatformOrchestrationKit_printInstallPhaseResult renders populated section
   ]);
 });
 
-test("PlatformOrchestrationKit_shellQuoteForInstallDisplay preserves shell-hostile characters", () => {
+void test("PlatformOrchestrationKit_shellQuoteForInstallDisplay preserves shell-hostile characters", () => {
   assert.equal(
     PlatformOrchestrationKit_shellQuoteForInstallDisplay(
       '/tmp/demo path/"quoted"',

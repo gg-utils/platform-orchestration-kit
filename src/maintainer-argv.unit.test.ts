@@ -22,21 +22,21 @@ import {
   PlatformOrchestrationKit_parseMaintainerArgv,
 } from "./maintainer-argv.js";
 
-describe("PlatformOrchestrationKit maintainer argv", () => {
-  it("parses JSON mode and project root", () => {
+void describe("PlatformOrchestrationKit maintainer argv", () => {
+  void it("parses JSON mode and project root", () => {
     assert.deepEqual(PlatformOrchestrationKit_parseMaintainerArgv(["--json", "--project-root", "/tmp/r"]), {
       kind: "json",
       projectRoot: "/tmp/r",
     });
   });
 
-  it("lets help win over JSON", () => {
+  void it("lets help win over JSON", () => {
     assert.deepEqual(PlatformOrchestrationKit_parseMaintainerArgv(["--json", "--help"]), {
       kind: "help",
     });
   });
 
-  it("renders help text with JSON and project-root flags", () => {
+  void it("renders help text with JSON and project-root flags", () => {
     const help = PlatformOrchestrationKit_getMaintainerHelpText("npm run x --");
     assert.match(help, /--json/);
     assert.match(help, /--project-root/);
